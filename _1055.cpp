@@ -1,9 +1,9 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<string>
 
 using namespace std;
 
-//ÌâÒâ°¡ÌâÒâ£¡£¡£¡£¡£¡
+//é¢˜æ„å•Šé¢˜æ„ï¼ï¼ï¼ï¼ï¼
 int main()
 {
 	string line;

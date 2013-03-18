@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<iomanip>
 
 using namespace std;
@@ -7,5 +7,5 @@ int main()
 {
 	double a,b;
 	cin>>a>>b;
-	cout<<setiosflags(ios::fixed)<<setprecision(2)<<"ÇëÊäÈë¼Û¸ñ£º\nÖ§¸¶½ð¶î£º\n"<<b-a<<endl;
+	cout<<setiosflags(ios::fixed)<<setprecision(2)<<"è¯·è¾“å…¥ä»·æ ¼ï¼š\næ”¯ä»˜é‡‘é¢ï¼š\n"<<b-a<<endl;
 }
