@@ -1,6 +1,3 @@
-My answer to all 72 problems.
+## Solution To http://acm.whu.edu.cn/starter/ ##
 
-Some *.cpp may not right because they are not the final version.
-
-These are all sources files I created before I use github.
-I use different file name to control versions, that's not a good idea.
+Problem 1001 to 1072 in C/C++.
