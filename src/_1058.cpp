@@ -1,26 +1,25 @@
 #include<stdio.h>
-#include<iostream>
-#include<iomanip>
-
-using namespace std;
 
 int main()
 {
-	int arr[10]={1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
-	int *pt=arr;
-	cout<<"0x003BFAB8"<<endl;
-	cout<<"0x003BFAAC"<<endl;
-	cout<<"0x003BFAB8"<<endl;
-	cout<<*pt<<endl;
-	cout<<*pt+3<<endl;
-	cout<<pt[3]<<endl;
-	cout<<"0x003BFAC0"<<endl;
-	cout<<"0x003BFAC0"<<endl;
-	cout<<*(pt+3)<<endl;
-	cout<<*pt++<<endl;
-	cout<<*(pt++)<<endl;
-	cout<<(*pt)++<<endl;
-	cout<<++(*pt)<<endl;
+    int arr[10]={1, 3, 5, 7, 9, 11, 13, 15, 17, 19};
+    int *pt=arr;
+    printf("%p\n",&arr[0]);
+    printf("%p\n",&pt);
+    printf("%p\n",pt);
+    printf("%d\n",*pt);
 
-	return 0;
+    printf("%d\n",*pt+3);
+    printf("%d\n",pt[3]);
+    printf("%p\n",&*pt);
+    printf("%p\n",*&pt);
+    //printf("%d\n",*pt[3]);
+    printf("%d\n",*(pt+3));
+
+    printf("%d\n",*pt++);
+    printf("%d\n",*(pt++));
+    printf("%d\n",(*pt)++);
+    printf("%d\n",++(*pt));
+
+    return 0;
 }
