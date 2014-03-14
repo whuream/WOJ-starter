@@ -1,37 +1,50 @@
-#include<iostream>
-#include<iomanip>
+#include<cstdio>
 #include<cmath>
+
+#define eps 1e-7
 
 using namespace std;
 
+bool eqzero(double a)
+{
+	return a <= eps && a >= -eps;
+}
+
 int main()
 {
-	int N,i;
-	cin>>N;
-	for(i=1;i<=N;i++)
+	int N, i;
+	double a, b, c;
+	scanf("%d", &N);
+	for(i = 1;i <= N;i ++)
 	{
-		int a,b,c;
-		cin>>a>>b>>c;
-		cout<<"Case "<<i<<": ";
-
-		long long int z=b*b-4*a*c;
-
-		if(0==a)
+		scanf("%lf%lf%lf", &a, &b, &c);
+		printf("Case %d: ", i);
+		if(eqzero(a))
 		{
-			if(0==b) cout<<"NULL\n";
-			else if((double(c)/(-b)>-0.01)&&(double(c)/(-b)<0.01)) cout<<setiosflags(ios::fixed)
-			<<setprecision(2)<<double(c)/(b)<<endl;
-			else cout<<setiosflags(ios::fixed)
-			<<setprecision(2)<<double(c)/(b)<<endl;
+			if(eqzero(b)) printf("NULL\n");
+			else 
+			{
+				double tmp = -c / b;
+				printf("%.2f\n",tmp);
+			}
 		}
-		else 
+		else
 		{
-			if(z<0) cout<<"NULL\n";
-			else if(0==z) cout<<setiosflags(ios::fixed)
-									<<setprecision(2)<<(-b)/(2.0*a)<<endl;
-			else cout<<setiosflags(ios::fixed)
-					<<setprecision(2)<<(-b-sqrt((double)z))/(2*a)<<' '
-					<<(-b+sqrt((double)z))/(2*a)<<endl;
+			if(b*b-4*a*c<0) printf("NULL\n");
+			else if(b*b-4*a*c==0)
+			{
+				double tmp = -b / (2.0 * a);
+				printf("%.2f\n", tmp);
+			}
+			else
+			{
+				double tmp1 = (-b-sqrt(b*b-4.0*a*c))/(2*a);
+				double tmp2 = (-b+sqrt(b*b-4.0*a*c))/(2*a);
+				if(tmp1 > tmp2)
+					printf("%.2f %.2f\n", tmp2, tmp1);
+				else
+					printf("%.2f %.2f\n", tmp1, tmp2);
+			}
 		}
 	}
 	return 0;

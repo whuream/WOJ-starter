@@ -1,40 +1,37 @@
-#include<iostream>
-#include<iomanip>
-#include<strstream>
+#include<stdio.h>
 
-using namespace std;
+union a
+{
+	int l;
+	char t;
+};
+
 
 int main()
 {
 	int a;
-	while(cin>>a)
+	while(scanf("%d",&a)==1)
 	{
 		char *p;
-		int *_a=&a;
-		p=(char *)(_a);
+		p=(char *)(&a);
 
-		int end;
-		if(sizeof(int)==16) end=2;
-		else end=4;
-		for(int i=0;i<end;i++)
+		for(int i=0;i<sizeof(int);i++)
 		{
 			int tmp=int(*(p+i));
-			if(tmp==0) cout<<"00";
+			if(tmp==0) printf("00");
 			if(tmp>0)
 			{
-				if(tmp<10) cout<<"0";
-				cout<<setiosflags(ios::uppercase)<<hex<<tmp;
+				if(tmp<10) printf("0");
+				printf("%X",tmp);
 			}
 			if(tmp<0)
 			{
 				char buf[10];
-				strstream a(buf,10);
-				a<<setiosflags(ios::uppercase)<<hex<<tmp;
-				cout<<buf[6]<<buf[7];
+				sprintf(buf,"%X",tmp);
+				printf("%c%c",buf[sizeof(int)*2-2],buf[sizeof(int)*2-1]);
 			}
-			//cout<<hex<<setw(2)<<int(*(p+i));
 		}
-		cout<<endl;
+		printf("\n");
 	}
 	return 0;
 }

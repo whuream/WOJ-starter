@@ -1,32 +1,30 @@
 #include<stdio.h>
-#include<iostream>
-
-using namespace std;
 
 void getnchar(char *str, int n)
 {
 	char c;
-	for(int i=0;;i++)
+	int i;
+	for(i=0;;i++)
 	{
 		c=getchar();
 		if(c=='\n')
 		{
-			str[i]='\0';
-			return;
+			if(i<n) str[i]='\0';
+			break;
 		}
-		str[i]=c;
+		else if(i<n-1) str[i]=c;
+		else if(i==n-1) str[i]='\0';
 	}
 }
 
 int my_strlen(char *str)
 {
-	int c=0;
-	for(int i=0;;i++)
+	int c=0,i;
+	for(i=0;;i++)
 	{
-		if(str[i]=='\0') break;
-		else c++;
+		if(str[i]=='\0') return c;
+		c++;
 	}
-	return c;
 }
 
 int my_strncat(char *dest, char *src, int n)
@@ -35,13 +33,12 @@ int my_strncat(char *dest, char *src, int n)
 	int src_len=my_strlen(src);
 
 	int c=src_len<n?src_len:n;
-	int i;
 
+	int i;
 	for(i=0;i<c;i++)
 	{
 		dest[dest_len+i]=src[i];
 	}
-
 	dest[dest_len+i]='\0';
 	return c;
 }
@@ -49,7 +46,7 @@ int my_strncat(char *dest, char *src, int n)
 int my_strspn(char *str, char *keys)
 {
 	int str_len=my_strlen(str);
-	int keys_len=my_strlen(str);
+	int keys_len=my_strlen(keys);
 
 	int i,j;
 	for(i=0;i<str_len;i++)
@@ -65,25 +62,22 @@ int my_strspn(char *str, char *keys)
 
 int main()
 {
-	int N,i;
+	int N,i,x;
+	char a[1000],b[1000],c[1000];
 
 	scanf("%d",&N);
-	//while(getchar()!='\n');
 	getchar();
-
 	for(i=0;i<N;i++)
 	{
-		char a[1001],b[1001],c[1001];
-		int x;
-		getnchar(a,1001);
-		getnchar(b,1001);
-		getnchar(c,1001);
+		getnchar(a,120);
+		getnchar(b,120);
+		getnchar(c,120);
 
 		scanf("%d",&x);
-		//while(getchar()!='\n');
 		getchar();
 
 		printf("%d\n",my_strlen(a));
+
 		printf("%d ",my_strncat(a,b,x));
 		printf("%s\n",a);
 
